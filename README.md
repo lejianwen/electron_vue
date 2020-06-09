@@ -5,7 +5,8 @@
 ~/.npmrc 中添加
 
 registry=https://registry.npm.taobao.org
-sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+disturl=https://npm.taobao.org/dist
+sass-binary-site=http://npm.taobao.org/mirrors/node-sass/
 electron_mirror=https://npm.taobao.org/mirrors/electron/
 ~~~
 
@@ -26,4 +27,6 @@ electron_mirror=https://npm.taobao.org/mirrors/electron/
 * ipcRender在render.js中挂载到了window.ipcRender中， ipcRender相关可放在 utils/ipcRender.js 中
 
 ## 其他  
-* 自动更新 ***build.publish.url*** 为服务器最新版地址， 打包后将生成的 ***builder/latest.yml*** 和 ***builder/xxxx.exe*** 放到该url下，自动更新只在环境为production并且配置url时生效
+* 自动更新 ***build.publish.url*** 为服务器最新版地址，需要与 ***./electron/updater.js***中的url保持一致,打包后将生成的 ***builder/latest.yml*** 和 ***builder/xxxx.exe*** 放到该url下，自动更新只在环境为production并且配置url时生效
+* 遇到打包时nsis等文件下载问题，参考 [issue](https://github.com/electron-userland/electron-builder/issues/1859)
+

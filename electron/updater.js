@@ -2,8 +2,7 @@ const { autoUpdater } = require('electron-updater')
 const { ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs')
-const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
-const url = packageJson.build.publish.url // 更新包位置
+const url = 'http://localhost/zip' // 更新包位置
 // 执行自动更新检查
 function autoUpdate(mainWindow) {
   if (process.env.NODE_ENV === 'production' && url) {
